@@ -2,7 +2,7 @@
 //  LoginView.swift
 //  QuickCuts
 //
-//  Created by Amit Kumar Dhal on 07/09/24.
+//  Created by Akshay Jha on 07/09/24.
 //
 
 import SwiftUI
