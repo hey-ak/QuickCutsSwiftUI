@@ -9,7 +9,39 @@ import SwiftUI
 
 struct ReviewCard: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack (alignment: .leading, spacing: 20) {
+            HStack (spacing: 15) {
+                VStack {
+                    Image("rabbit")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                }
+                VStack (alignment: .leading, spacing: 5) {
+                    Text("Akshita Sharma")
+                        .font(.custom("Poppins-Semibold", size: 16))
+                        .foregroundStyle(Color("textColor"))
+                    HStack {
+                        Text("4.2 stars,")
+                            .font(.custom("Poppins-Light", size: 14))
+                            .foregroundStyle(.gray)
+                        
+                        Text("2023-09-15")
+                            .font(.custom("Poppins-Light", size: 14))
+                            .foregroundStyle(.gray)
+                    }
+                }
+            }
+            
+            VStack (alignment: .leading) {
+                Text("Gread service and friendly staff. Highly recommended!")
+                    .font(.custom("Poppins-Light", size: 14))
+                    .foregroundStyle(Color("textColor"))
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.systemGray6).opacity(0.6))
+        .cornerRadius(10)
     }
 }
 

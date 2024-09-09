@@ -13,7 +13,7 @@ struct SalonDetailView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView (showsIndicators: false) {
                 VStack {
                     Image("food_14")
                         .resizable()
@@ -24,7 +24,7 @@ struct SalonDetailView: View {
                         .font(.custom("Poppins-Semibold", size: 22))
                         .foregroundColor(.init("textColor"))
                     
-                    Text("4.5 starts")
+                    Text("4.5 stars")
                         .font(.custom("Poppins-Light", size: 14))
                         .foregroundStyle(Color(.systemGray))
                     
@@ -38,35 +38,50 @@ struct SalonDetailView: View {
                     .padding(.top, 10)
                     
                     if selectedSegment == 0 {
-                        // service
+                        // Services
                         Text("Services")
                             .font(.custom("Poppins-Bold", size: 24))
                             .foregroundColor(.init("textColor"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.top, 20)
                         
-//                        ForEach (0...2, id: \.self) { _ in
-//                            ServiceView(service: "Facial", price: "$20")
-//                        }
-                        ServiceView(service: "Haircut", price: "$100")
-                        Divider()
-                            .opacity(0.7)
-                        ServiceView(service: "Facial", price: "$20")
-                        Divider()
-                            .opacity(0.7)
-                        ServiceView(service: "Beard", price: "$40")
-                        Divider()
-                            .opacity(0.7)
-                        ServiceView(service: "Nail Extension", price: "$200")
+                        ForEach(0...3, id: \.self) { _ in
+                            ServiceView(service: "Haircut", price: "Rs 100")
+                                .padding(.bottom, 8)
+                        }
                         
                     } else if selectedSegment == 1 {
                         // Reviews
+                        Text("Reviews")
+                            .font(.custom("Poppins-Bold", size: 24))
+                            .foregroundColor(.init("textColor"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 20)
+                        
+                        VStack(spacing: 20) {
+                            ForEach(0...2, id: \.self) { _ in
+                                ReviewCard()
+                            }
+                        }
                         
                     } else {
                         // Gallery
+                        Text("Gallery")
+                            .font(.custom("Poppins-Bold", size: 24))
+                            .foregroundColor(.init("textColor"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 20)
                         
+                        LazyVGrid (columns: [GridItem(.adaptive(minimum: 150), spacing: 16)]) {
+                            ForEach (0...5, id: \.self) { _ in
+                                Image("food_14")
+                                    .resizable()
+                                    .frame(height: 150)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                    .padding(.bottom, 8)
+                            }
+                        }
                     }
-                    
                 }
             }
             .background(Color(.systemBackground))
