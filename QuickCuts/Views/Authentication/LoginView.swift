@@ -5,6 +5,7 @@
 //  Created by Akshay Jha on 07/09/24.
 //
 
+
 import SwiftUI
 
 struct LoginView: View {
@@ -14,12 +15,13 @@ struct LoginView: View {
 
     var body: some View {
         ScrollView (showsIndicators: false) {
-            VStack(spacing: 30) {
+            VStack(spacing: 20) {
                
-                Text("Quick Cuts")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.init("textColor"))
+                VStack(spacing: 16) {
+                    Text("Login")
+                        .font(.custom("Poppins-Bold", size: 26))
+                        .foregroundColor(.init("textColor"))
+                }
 
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Email")
@@ -57,23 +59,26 @@ struct LoginView: View {
                     .cornerRadius(10)
                 }
 
-                Button(action: {}) {
-                    Text("Login")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(.init("buttonColor")))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                VStack (spacing: 20) {
+                    Button(action: {}) {
+                        Text("Login")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(.init("buttonColor")))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
+                    Button(action: {}) {
+                        Text("Sign up")
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                            .padding()
+                            .foregroundColor(.init("textColor"))
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10)
+                    }
                 }
-                
-                Button(action: {}) {
-                    Text("Sign up")
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                        .padding()
-                        .foregroundColor(.init("textColor"))
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                }
+                .padding(.top, 20)
                 
                 HStack {
                     Rectangle()
@@ -90,9 +95,11 @@ struct LoginView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "envelope.fill")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("textColor"))
+                                .font(.system(size: 15))
                             Spacer()
                             Text("Login with Email")
+                                .font(.custom("Poppins-Regular", size: 15))
                                 .foregroundColor(.init("textColor"))
                                 .frame(maxWidth: .infinity, alignment: .center)
                             Spacer()
@@ -106,9 +113,11 @@ struct LoginView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "applelogo")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("textColor"))
+                                .font(.system(size: 22))
                             Spacer()
                             Text("Login with Apple")
+                                .font(.custom("Poppins-Regular", size: 15))
                                 .foregroundColor(.init("textColor"))
                                 .frame(maxWidth: .infinity, alignment: .center)
                             Spacer()
@@ -122,9 +131,11 @@ struct LoginView: View {
                     Button(action: {}) {
                         HStack {
                             Image(systemName: "globe")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("textColor"))
+                                .font(.system(size: 18))
                             Spacer()
                             Text("Login with Google")
+                                .font(.custom("Poppins-Regular", size: 15))
                                 .foregroundColor(.init("textColor"))
                                 .frame(maxWidth: .infinity, alignment: .center)
                             Spacer()
@@ -138,12 +149,9 @@ struct LoginView: View {
 
                 Spacer()
             }
-            .padding(.horizontal, 30)
-            .padding(.vertical, 20)
+            .padding(.horizontal, 16)
             .background(Color(.systemBackground))
-            //.ignoresSafeArea(.all)
         }
-        //.background(.red)
         .clipped()
     }
 }

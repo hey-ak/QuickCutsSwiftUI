@@ -17,16 +17,16 @@ struct SignUpView: View {
         ScrollView {
             VStack(spacing: 20) {
              
-                Text("Sign Up")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.top, 30)
-                
+                VStack(spacing: 16) {
+                    Text("Sign Up")
+                        .font(.custom("Poppins-Bold", size: 26))
+                        .foregroundColor(.init("textColor"))
+                }
              
                 VStack(alignment: .leading) {
                     Text("Full Name")
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                     TextField("Full Name", text: $fullName)
                         .padding()
                         .background(Color(UIColor.systemGray6))
@@ -37,7 +37,7 @@ struct SignUpView: View {
                 VStack(alignment: .leading) {
                     Text("Email")
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                     TextField("Email", text: $email)
                         .padding()
                         .background(Color(UIColor.systemGray6))
@@ -49,7 +49,7 @@ struct SignUpView: View {
                 VStack(alignment: .leading) {
                     Text("Phone Number")
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                     TextField("Phone Number", text: $phoneNumber)
                         .padding()
                         .background(Color(UIColor.systemGray6))
@@ -61,7 +61,7 @@ struct SignUpView: View {
                 VStack(alignment: .leading) {
                     Text("Password")
                         .font(.headline)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                     SecureField("Password", text: $password)
                         .padding()
                         .background(Color(UIColor.systemGray6))
@@ -86,7 +86,7 @@ struct SignUpView: View {
               
                 HStack {
                     Text("Already have an account?")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("textColor"))
                     Button(action: {
                        
                     }) {
@@ -97,8 +97,7 @@ struct SignUpView: View {
                 }
                 .padding(.top, 30)
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 50)
+            .padding(.horizontal, 16)
         }.clipped()
         .background(Color.white)
         .ignoresSafeArea(.keyboard, edges: .bottom)
